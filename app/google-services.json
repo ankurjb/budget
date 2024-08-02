@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "907415358249",
+    "project_id": "budget-3ccc9",
+    "storage_bucket": "budget-3ccc9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:907415358249:android:d51f249450ff0274bec538",
+        "android_client_info": {
+          "package_name": "com.ankurjb.budget"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBOPNsGbiNfVqwYr7_bW_o66P9ZZFPq3Ag"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -22,8 +22,12 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew build
 
+      - name: Set commit hash
+        id: vars
+        run: echo "COMMIT_HASH=$(git rev-parse HEAD)" >> $GITHUB_ENV
+
       - name: Upload build artifact
         uses: actions/upload-artifact@v4.3.4
         with:
-          name: $(git rev-parse HEAD).apk
+          name: budget-debug-${{ env.COMMIT_HASH }}.apk
           path: app/build/outputs/apk/debug/app-debug.apk

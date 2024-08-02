@@ -55,8 +55,16 @@ jobs:
           groups: testers
           file: app/build/outputs/apk/debug/app-debug.apk
 
+      - name: Build and Upload Signed App Bundle
+        if: github.ref == 'refs/heads/dev' && github.event_name == 'push'
+        run: |
+          ./gradlew bundleRelease
+          echo "${{ secrets.KEYSTORE_FILE }}" | base64 -d > keystore.jks
+          ./gradlew bundleRelease
+
       - name: Upload signed app bundle
-        uses: actions/upload-artifact@v4.3.4
+        if: github.ref == 'refs/heads/dev' && github.event_name == 'push'
+        uses: actions/upload-artifact@v4
         with:
           name: budget-release-${{ env.COMMIT_HASH }}.aab
           path: app/build/outputs/bundle/release/app-release.aab
